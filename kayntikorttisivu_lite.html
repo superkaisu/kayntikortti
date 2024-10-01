@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Basics-->
+    <meta charset="UTF-8" />
+    <title>Landing Page</title>
+
+    <!--Mobile Specific Metas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <link rel="stylesheet" href="./skeleton.css" />
+    <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="./email.js"></script>
+
+  </head>
+  <body>
+    <div class="top-container" >
+        <h1 class="main-heading">Kaisu Suurniemi</h1>
+    </div> 
+
+    <div class="container">
+      <header>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="seven columns" style="margin-top: 4rem;">
+                    <p>Olen kolmannen vuoden tietojenkäsittelyn opiskelija Karelia AMK:ssa. <br>
+                        Opinnoissani olen keskittynyt fullstack-kehitykseen ja mobiiliohjemointiin sekä
+                        sovelluskehitykseen, lisäksi olen suorittanut tietojenkäsittelytieteiden perusopintoja.
+                        Osaamista on karttunut työskentelemällä harjoittelijan
+                        roolissa WordPress-verkkosivujen parissa sekä opintoihin liittyvissä sovelluskehitysprojekteissa.
+                    </p>
+                </div>
+                <div class="five columns">
+                    <img src="./kaisu_circle.png" alt="Kaisu Suurniemi" id="kaisu" name="kaisu"/>
+                </div>
+            </div>
+        </div>
+      </header>
+      <section>
+        <h2>Osaaminen</h2>
+        <p>
+          Tähän voisi tehdä tägejä, joissa osaamisalueet
+        </p>
+      </section>
+      <section>
+        <h2>Yhteys</h2>
+        <p>Github: painike <br>
+        LinkedIn: painike</p>
+      </section>
+      <section>
+        <h2>Yhteydenottopyyntö</h2>
+        <form action="?" method="POST">
+            <div class="row">
+                <div class="six columns">
+          <label for="name">Name:</label>
+          <input class="u-full-width" type="text" id="name" name="name" required />
+        </div>
+        <div class="six columns">
+          <label for="email">Email:</label>
+          <input class="u-full-width" type="email" id="email" name="email" required />
+          </div>
+          <label for="message">Message:</label>
+          <textarea class="u-full-width" id="message" name="message" required></textarea>
+          <!--<div class="g-recaptcha" data-sitekey="6LdBik8qAAAAAKsH2kZuFLFJ3Y-O26jqYaR6Uo5A"></div>-->
+          </br>
+          <input type="submit" value="Send" />
+        </div>
+        </form>
+      </section>
+
+      <footer>
+        <p>&copy; 2024 SuperKaisu</p>
+      </footer>
+    </div>
+  </body>
+</html>
