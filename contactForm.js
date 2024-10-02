@@ -1,4 +1,4 @@
-function emailJS() {
+function emailjs() {
   emailjs.init({
     publicKey: "pwlYWXb-LPFllOsNm",
   });
@@ -6,7 +6,7 @@ function emailJS() {
 
 window.onload = function () {
   document
-    .getElementById("contact-form")
+    .getElementById("contact_form")
     .addEventListener("submit", function (event) {
       event.preventDefault();
       // these IDs from the previous steps

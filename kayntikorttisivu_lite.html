@@ -12,7 +12,31 @@
     <link rel="stylesheet" href="./skeleton.css" />
     <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="./email.js"></script>
+    <script type="text/javascript">
+      (function() {
+          emailjs.init({
+            publicKey: "pwlYWXb-LPFllOsNm",
+          });
+      })();
+  </script>
+  <script type="text/javascript">
+      window.onload = function() {
+          document.getElementById('contact_form').addEventListener('submit', function(event) {
+              event.preventDefault();
+              emailjs.sendForm('service_cagedmw', 'template_fxe0q5m', this)
+                  .then(() => {
+                      console.log('SUCCESS!');
+                      document.getElementById("modal").style.display = "block";
+                      function sleep(ms){
+                          return new Promise(resolve => setTimeout(resolve, ms));
+                      }
+                      sleep(1500).then(()=>clearForm());
+                  }, (error) => {
+                      console.log('FAILED...', error);
+                  });
+          });
+      }
+  </script>
 
   </head>
   <body>
@@ -39,28 +63,49 @@
             </div>
         </div>
       </header>
+      <br>
       <section>
         <h2>Osaaminen</h2>
+        <div class="container">
+          <div>
         <p>
-          Tähän voisi tehdä tägejä, joissa osaamisalueet
+          C#, JavaScript, HTML, CSS, SQL, React, Node.js, Express, Wordpress, Agile, Scrum, Project Management, Git,
+          RPA, REST API, Customer Service, Teamwork, Communication, Problem Solving
         </p>
+      </div>
+        <div></div>
+        </div>
       </section>
       <section>
-        <h2>Yhteys</h2>
-        <p>Github: painike <br>
-        LinkedIn: painike</p>
+        <div>
+        <h2>Portfolio ja työkokemus</h2>
+        <div>
+        <button type="image" onclick="openGithub()" style="border: none;">
+          <img src="github-mark.png" alt="GitHub logo" style="height: 3rem; width: 3rem;" />
+        </button>
+        <button type="image" onclick="openLinkedin()" style="border: none;">
+          <img src="LI-In-Bug.png" alt="LinkedIn logo" style="height: 3rem; width: 3rem;"/>
+        </button>
+      </div>
+          <br>
+        </div>
       </section>
       <section>
-        <h2>Yhteydenottopyyntö</h2>
-        <form action="?" method="POST">
+        <h2>Laita viestiä</h2>
+        <div id="modal" style="display: none;">
+          <br>
+          <p>Viesti lähetetty!</p>
+          <br>
+        </div>
+        <form action="?" method="POST" id="contact_form" name="contact_form">
             <div class="row">
                 <div class="six columns">
           <label for="name">Name:</label>
-          <input class="u-full-width" type="text" id="name" name="name" required />
+          <input class="u-full-width" type="text" id="user_name" name="user_name" required />
         </div>
         <div class="six columns">
           <label for="email">Email:</label>
-          <input class="u-full-width" type="email" id="email" name="email" required />
+          <input class="u-full-width" type="email" id="user_email" name="user_email" required />
           </div>
           <label for="message">Message:</label>
           <textarea class="u-full-width" id="message" name="message" required></textarea>
@@ -69,11 +114,24 @@
           <input type="submit" value="Send" />
         </div>
         </form>
+      </div>
       </section>
-
       <footer>
         <p>&copy; 2024 SuperKaisu</p>
       </footer>
+
     </div>
+    <script>
+      function openGithub() {
+        window.open("https://github.com/superkaisu");
+      }
+      function openLinkedin() {
+        window.open("https://linkedin.com/in/kaisu-suurniemi-77861215a");
+      }
+      function clearForm() {
+        document.getElementById("contact_form").reset();
+        document.getElementById("modal").style.display = "none";
+      }
+    </script>
   </body>
 </html>
